@@ -13,8 +13,8 @@ import {
 
 import { Loader } from '../../Load';
 import { ApplicationState } from '../../../store';
-import { Evolutions } from '../../../store/modules/evolucao/types';
-import { loadRequest } from '../../../store/modules/evolucao/actions';
+import { Evolutions } from '../../../store/modules/evolucoes/types';
+import { loadRequest } from '../../../store/modules/evolucoes/actions';
 
 interface EvolutionProps {
   id: number;

@@ -5,7 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootSaga from './modules/rootSaga';
 import rootReducer from './modules/rootReducer';
 import { PokemonsState } from './modules/pokemons/types';
-import { EvolutionsState } from './modules/evolutions/types';
+import { EvolutionsState } from './modules/evolucoes/types';
 
 export type ApplicationState = {
   pokemons: PokemonsState;

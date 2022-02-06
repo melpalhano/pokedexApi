@@ -22,7 +22,7 @@ import {
   ImageContainer,
   Pokeball,
 } from './styles';
-import { resetEvolutions } from '../../store/modules/evolucao/actions';
+import { resetEvolutions } from '../../store/modules/evolucoes/actions';
 
 interface ModalProps {
   data: Pokemon;
