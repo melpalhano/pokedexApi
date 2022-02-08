@@ -15,7 +15,7 @@ const Home: NextPage = () => {
           <div>
             <h1>Bem-Vinde à Pokédex</h1>
             <p>
-             Explore a vontade e boa sorte na sua jornada Pokémon!
+              Use o Pokédex para saber mais sobre as diferentes espécies de Pokémon e suas Evoluções.
             </p>
 
             <Link href="/pokemons" prefetch>
