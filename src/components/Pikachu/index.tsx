@@ -10,7 +10,8 @@ import SwiperCore, {
 
 import { Container } from './styles';
 
-import pikachuImg from '../../assets/pokemons/pikachu.png';
+//import pikachuImg from '../../assets/pokemons/pikachu.png';
+import pokedexImg from '../../assets/pokemons/pokedex.png';
 
 const Carousel = () => {
   SwiperCore.use([Autoplay, Pagination, Navigation, EffectFade]);
@@ -34,7 +35,7 @@ const Carousel = () => {
         slidesPerView={1}
       >
         <SwiperSlide>
-          <Image src={pikachuImg} alt="Pikachu" />
+          <Image src={pokedexImg} alt="Pokedex" />
         </SwiperSlide>
       </Swiper>
 
