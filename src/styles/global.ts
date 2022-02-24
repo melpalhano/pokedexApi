@@ -32,4 +32,20 @@ export default createGlobalStyle`
     line-height: 140%;
     letter-spacing: 1px;
   }
+
+  /*========== SCROLL BAR ==========*/
+  ::-webkit-scrollbar{
+      width: .60rem;
+      background-color: hsl(155, 12%, 90%);
+      border-radius: .5rem;
+  }
+
+  ::-webkit-scrollbar-thumb{
+      background-color: hsl(155, 12%, 80%);
+      border-radius: .5rem;
+  }
+
+  ::-webkit-scrollbar-thumb:hover{
+      background-color: hsl(155, 8%, 65%);
+  }
 `;

@@ -47,11 +47,11 @@ const Evolution = ({ id, isSelected }: EvolutionProps) => {
         <Loader alignCenter={false} />
       ) : (
         <>
-          {evolutions.length > 0 ? (
-            evolutions.map(item => (
-              <div key={Math.random()}>
-                {item.pokemons.map((pokemon, index) => (
-                  <React.Fragment key={Math.random()}>
+          {evolutions.length ? (
+            evolutions.map((item, index) => (
+              <div key={index}>
+                {item.pokemons.map((pokemon, indexTwo) => (
+                  <React.Fragment key={indexTwo}>
                     <div className="pokemon">
                       {pokemon.image && (
                         <ImageContainer>
@@ -69,7 +69,7 @@ const Evolution = ({ id, isSelected }: EvolutionProps) => {
                       <p>{pokemon.name}</p>
                     </div>
 
-                    {index === 0 && (
+                    {!indexTwo && (
                       <div className="level">
                         <HiOutlineArrowNarrowRight />
                         <p>{item.minLevel}</p>

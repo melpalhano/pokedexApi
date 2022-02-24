@@ -1,11 +1,12 @@
 import { Container } from './styles';
+import Image from 'next/image';
 
-import Pokeball from '../../../public/pokeball.svg';
+import Pokeball from '../../../public/Pokeball.svg';
 
 const NoSearchResults = () => (
   <Container>
-    <Pokeball />
     <div>
+      <Image src={Pokeball} alt="Logo Pokémon" />
       <h1>Nenhum resultado.</h1>
       <p>Tente novamento com outro nome.</p>
     </div>

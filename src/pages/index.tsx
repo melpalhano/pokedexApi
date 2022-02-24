@@ -1,12 +1,10 @@
 import Link from 'next/link';
 import type { NextPage } from 'next';
-
 import { Header } from '../components/Header';
 import { Carousel } from '../components/Pikachu';
-
 import { Container, InfomationContainer } from '../styles/pages/home';
 
-const Home: NextPage = () => {
+export default function Home(props: NextPage) {
   return (
     <Container>
       <Header showSearch={false} />
@@ -26,11 +24,8 @@ const Home: NextPage = () => {
           <div>
           </div>
         </InfomationContainer>
-
         <Carousel />
       </div>
     </Container>
   );
 };
-
-export default Home;

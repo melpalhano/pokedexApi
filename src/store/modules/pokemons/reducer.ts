@@ -21,7 +21,7 @@ const INITIAL_STATE: PokemonsState = {
   searchValue: '',
   showModal: false,
   currentPokemons: [],
-  selectedPokemon: undefined,
+  selectedPokemon: null,
   filter: {
     text: 'I',
     offset: 0,

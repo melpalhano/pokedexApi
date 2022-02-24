@@ -6,14 +6,15 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   color: ${({ theme }) => theme.colors.dark};
-
+  
   svg {
     width: 2.5rem;
     animation: spinBall 0.2s linear 1;
     transition: transform 0.2s ease-in;
   }
-
+  
   div {
+    text-align: center;
     margin-left: 1rem;
   }
 

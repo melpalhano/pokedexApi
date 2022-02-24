@@ -33,7 +33,7 @@ export const NavigationContainer = styled.div`
   .select-gen {
     display: table;
     border-radius: 0.5rem;
-    box-shadow: 0 0 1rem 0 rgb(0 0 0 / 20%);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 15%);
     background-color: ${({ theme }) => theme.backgrounds.white};
   }
 
@@ -77,7 +77,7 @@ export const NavigationLink = styled.a<INavigationLinkProps>`
     border-radius: 6.25rem;
     transform-origin: center;
     opacity: ${({ active }) => (active ? 1 : 0)};
-    background-color:#000;
+    background-color: #000;
     transform: ${({ active }) => (active ? 'scaleX(1)' : 'scaleX(0)')};
   }
 `;

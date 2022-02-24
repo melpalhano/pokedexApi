@@ -33,7 +33,7 @@ export interface PokemonsState {
   readonly filter: FilterOptions;
   readonly allPokemons: Pokemon[];
   readonly currentPokemons: Pokemon[];
-  readonly selectedPokemon: Pokemon | undefined;
+  readonly selectedPokemon: Pokemon | null;
 }
 
 export type LoadPokemons = {

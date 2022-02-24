@@ -9,12 +9,8 @@ import { Loader } from '../components/Load';
 import { Navigation } from '../components/Nav';
 import { NoSearchResults } from '../components/Pesquisa';
 
-import { filterPokemonsByGen } from '../utils';
 import {
-  generations,
   TOTAL_LIMIT,
-  DEFAULT_LIMIT,
-  DEFAULT_OFFSET,
   STORAGE_POKEMONS,
 } from '../utils/constants';
 
@@ -25,40 +21,35 @@ import { loadRequest, loadSuccess } from '../store/modules/pokemons/actions';
 import { Container, Content } from '../styles/pages/pokemons';
 import { FloatingButton } from '../components/Btn';
 
-const Pokemons: NextPage = () => {
+export default function Pokemons(props: NextPage) {
   const dispatch = useDispatch();
 
   const pokemons = useSelector<ApplicationState, Pokemon[]>(
-    state => state.pokemons.currentPokemons
+    state => state.pokemons.currentPokemons || []
   );
   const loaded = useSelector<ApplicationState, boolean>(
     state => state.pokemons.loaded
   );
-  const selectedPokemon = useSelector<ApplicationState, Pokemon | undefined>(
+  const selectedPokemon = useSelector<ApplicationState, Pokemon | null>(
     state => state.pokemons.selectedPokemon
   );
 
   useEffect(() => {
-    try {
-      var allPokemons = localStorage.getItem(STORAGE_POKEMONS);
+    const allPokemons = localStorage.getItem(STORAGE_POKEMONS) || null;
+    
+    if(allPokemons) {
+      const pokemons = JSON.parse(allPokemons) as Pokemon[];
+      dispatch(loadSuccess(pokemons));
 
-      if (!allPokemons) {
-        throw new Error('lista vazia');
-      }
-      if (allPokemons) {
-        var pokemons = JSON.parse(allPokemons) as Pokemon[];
-        if (allPokemons.length < 897) {
-          throw new Error('lista incompleta');
-        }
-        dispatch(loadSuccess(pokemons));
-      }
-    } catch (e) {
+    } else {
       dispatch(
         loadRequest({
           offset: 0,
           limit: TOTAL_LIMIT,
         })
       );
+
+      throw new Error('lista incompleta');
     }
   }, [dispatch]);
 
@@ -71,20 +62,18 @@ const Pokemons: NextPage = () => {
         <Loader />
       ) : (
         <>
-          {pokemons.length === 0 ? (
-            <NoSearchResults />
-          ) : (
+          {pokemons.length ? (
             <Content>
               {pokemons.map(pokemon => (
                 <Card key={pokemon.id} data={pokemon} />
               ))}
               {selectedPokemon && <Modal data={selectedPokemon} />}
             </Content>
-          )}
+          ) : 
+          (<NoSearchResults />)
+        }
         </>
       )}
     </Container>
   );
 };
-
-export default Pokemons;
