@@ -24,10 +24,10 @@ const Navigation = () => {
   const currentOrder = useSelector<ApplicationState, OrderOptions>(
     state => state.pokemons.order
   );
-  const handleSelectedGen = useCallback(
-    (filter: FilterOptions) => {
-      dispatch(filterPokemons(filter));
-      dispatch(orderPokemons(currentOrder));
+
+  const handleSelectedGen = useCallback((filter: FilterOptions) => {
+    dispatch(filterPokemons(filter));
+    dispatch(orderPokemons(currentOrder));
     },
     [dispatch, currentOrder]
   );
@@ -41,7 +41,7 @@ const Navigation = () => {
             <NavigationLink
               key={item.text}
               onClick={() => handleSelectedGen(item)}
-              active={selectedGen.text === item.text}
+              active={selectedGen.text.includes(item.text)}
             >
               {item.text}
             </NavigationLink>

@@ -30,7 +30,7 @@ export const InputContainer = styled.div`
   padding: 0.625rem 2.5rem 0.5rem 1rem;
   border-radius: 2rem;
   justify-content: space-between;
-  box-shadow: 0 0 1rem 0 rgb(0 0 0 / 25%);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 15%);
 
   > input {
     border: none;

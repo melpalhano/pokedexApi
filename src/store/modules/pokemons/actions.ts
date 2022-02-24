@@ -49,7 +49,7 @@ export const searchPokemons = (searchValue: string) => {
   };
 };
 
-export const selectPokemon = (payload: Pokemon | undefined) => {
+export const selectPokemon = (payload: Pokemon | null) => {
   return {
     type: ActionTypes.SELECT_POKEMON,
     payload,

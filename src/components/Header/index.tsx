@@ -35,10 +35,9 @@ const Header = ({ showSearch = true }: HeaderProps) => {
     state => state.pokemons.order
   );
 
-  const handleChangeEvent = useCallback(
-    (e: KeyboardEvent<HTMLInputElement>) => {
-      const target = e.target as HTMLInputElement;
-      if (router.asPath === '/' && target.value !== '') {
+  const handleChangeEvent = useCallback((element: KeyboardEvent<HTMLInputElement>) => {
+      const target = element.target as HTMLInputElement;
+      if (router.asPath.includes('/') && !target.value) {
         router.push({
           pathname: '/pokemons',
           query: { searchValue: target.value },
@@ -90,8 +89,6 @@ const Header = ({ showSearch = true }: HeaderProps) => {
           />
           <AiOutlineSearch onClick={handleClickEvent} />
         </InputContainer>
-
-        {/* <AiOutlineMenu /> */}
       </MenuContainer>
     </Container>
   );

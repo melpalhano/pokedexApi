@@ -13,6 +13,7 @@ export const Container = styled.div<IContainerProps>`
   margin: 2rem 1.25rem;
   transition: all 0.5s ease;
   background-color: ${({ theme, type }) => theme.backgrounds[type]};
+  box-shadow: 0 2px 4px rgb(0 0 0 / 60%);
 
   p {
     font-family: 'Roboto';
